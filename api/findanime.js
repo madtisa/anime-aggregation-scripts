@@ -12,7 +12,7 @@ function parseCurrentArticle() {
   if (!namesWrapper) return null;
 
   const namesList = Array.from(namesWrapper.children)
-    .map((name) => ({ name: name.innerText, tag: name.classList }));
+    .map((name) => ({ name: name.innerText, tag: Array.from(name.classList) }));
   const articleUrl = new URL(document.querySelector('meta[itemprop=url]').content);
   const articleId = articleUrl.pathname.split('/').reverse()[0];
 
